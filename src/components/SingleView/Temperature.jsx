@@ -14,7 +14,6 @@ const MaxT = styled.div`
     color: ${colors.hot};
     padding: 5px;
 `
-
 const MinT = styled.div`
     font-size: 35px;
     color: ${colors.cold};

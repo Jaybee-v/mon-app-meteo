@@ -14,13 +14,11 @@ const Logo = styled.i`
     padding: 10px;
     color: ${colors.water};
 `
-
 const NoRain = styled.i`
     font-size: 50px;
     padding: 10px;
     color: ${colors.water};
 `
-
 const ProbaRain = styled.span``
 const RainText = styled.span``
 

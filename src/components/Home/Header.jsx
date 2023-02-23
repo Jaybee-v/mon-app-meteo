@@ -24,7 +24,6 @@ const HeaderForm = styled.form`
     display: flex;
     align-items: center;
 `
-
 const HeaderSearchBtn = styled.button`
     background-color: ${colors.sun};
     border: none;

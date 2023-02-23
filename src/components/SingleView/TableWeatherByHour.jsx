@@ -1,7 +1,9 @@
 import styled from "styled-components"
-import moment from "moment/moment"
-import { useEffect, useState } from "react"
 import { colors } from "../../utils/style/colors"
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { useSearchParams } from "react-router-dom"
+import getWeather from "../../utils/functions/apiCall"
 
 const TableContainer = styled.section`
     background-color: #ccc;
@@ -10,33 +12,56 @@ const TableContainer = styled.section`
 const Table = styled.table`
     width: 100%;
     border-bottom: 1px solid ${colors.background};
+    border-radius: 15px;
+    background-color: #fff;
+    margin-bottom: 15px;
 `
-
 const THead = styled.thead``
-
 const TR = styled.tr`
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
 `
-
 const TH = styled.th`
     padding: 5px;
     font-size: 20px;
 `
-
 const THLogo = styled.i``
-
 const TBody = styled.tbody``
-
 const TD = styled.td`
-    padding: 5px;
+    padding: 20px 5px;
 `
 
-function TableWeatherByHour({ dataHour }) {
+function TableWeatherByHour() {
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [dataHour, setDataHour] = useState([])
+    const id = searchParams.get("id")
+
+    useEffect(() => {
+        async function getWeather() {
+            try {
+                const token = process.env.REACT_APP_API_TOKEN
+
+                const responseHour = await axios.get(
+                    `https://api.meteo-concept.com/api/forecast/nextHours?token=${token}&insee=${id}`
+                )
+
+                console.log(responseHour.data.forecast[0].datetime)
+
+                setDataHour(responseHour.data.forecast)
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        getWeather()
+    }, [])
+
     function getHour(value) {
         const test = new Date(value)
         console.log(test.getHours())
-        const H = test.getHours()
+        let H = test.getHours()
+        if (H === 0) {
+            H = "00"
+        }
         return H
     }
 
@@ -48,6 +73,9 @@ function TableWeatherByHour({ dataHour }) {
                         <TR>
                             <TH>
                                 <THLogo className="fa-regular fa-clock"></THLogo>
+                            </TH>
+                            <TH>
+                                <THLogo className="fa-solid fa-cloud-sun-rain"></THLogo>
                             </TH>
                             <TH>
                                 <THLogo className="fa-solid fa-temperature-three-quarters"></THLogo>
@@ -75,6 +103,7 @@ function TableWeatherByHour({ dataHour }) {
                                     <p>Rien n'est chargé</p>
                                 )}
                             </TD>
+                            <TD>{getWeather(hour.weather)}</TD>
                             <TD>{hour.temp2m}°C</TD>
                             <TD>{hour.wind10m}km/h</TD>
                             <TD>{hour.gust10m}km/h</TD>

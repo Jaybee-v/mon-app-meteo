@@ -2,11 +2,9 @@ import styled from "styled-components"
 import { colors } from "../../utils/style/colors"
 
 const List = styled.ul``
-
 const ElementList = styled.li`
     padding: 20px;
 `
-
 const ElementLink = styled.a`
     text-decoration: none;
     color: ${colors.background};

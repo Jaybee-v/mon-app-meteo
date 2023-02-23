@@ -8,13 +8,11 @@ const WindWrapper = styled.section`
     width: fit-content;
     padding: 10px;
 `
-
 const Logo = styled.i`
     font-size: 40px;
     padding: 10px;
     color: red;
 `
-
 const WindStrength = styled.span``
 
 function Wind({ data, setData }) {

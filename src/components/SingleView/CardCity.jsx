@@ -22,7 +22,6 @@ const CardAlt = styled.div`
     padding: 2px;
     font-size: 18px;
 `
-
 const WeatherCard = styled.div`
     font-size: 30px;
     padding: 8px;
