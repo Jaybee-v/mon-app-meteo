@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { WeatherCode } from "../../utils/data/WeatherCode"
 
 const CardContainer = styled.section`
     display: flex;
@@ -22,11 +23,25 @@ const CardAlt = styled.div`
     font-size: 18px;
 `
 
-function CardCity({ city, setCity }) {
+const WeatherCard = styled.div`
+    font-size: 30px;
+    padding: 8px;
+`
+
+function CardCity({ city, setCity, data, setData }) {
+    function getWeather() {
+        for (let i = 0; i < WeatherCode.length; i++) {
+            if (data.weather === WeatherCode[i].id) {
+                console.log(WeatherCode[i].description)
+                return WeatherCode[i].description
+            }
+        }
+    }
     return (
         <CardContainer>
             <CardTitle>{city.name}</CardTitle>
             <CardCP>{city.cp}</CardCP>
+            {getWeather() ? <WeatherCard>{getWeather()}</WeatherCard> : null}
             <CardAlt>{city.altitude} mêtres d'altitude</CardAlt>
         </CardContainer>
     )

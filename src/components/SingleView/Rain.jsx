@@ -22,7 +22,7 @@ const NoRain = styled.i`
 `
 
 const ProbaRain = styled.span``
-const NoRainText = styled.span``
+const RainText = styled.span``
 
 function Rain({ data, setData }) {
     return (
@@ -31,11 +31,12 @@ function Rain({ data, setData }) {
             {data.rr10 > 0 ? (
                 <RainContainer>
                     <Logo className="fa-solid fa-droplet" />
+                    <RainText>{data.rr10}mm</RainText>
                 </RainContainer>
             ) : (
                 <RainContainer>
                     <NoRain className="fa-solid fa-droplet-slash" />
-                    <NoRainText>Pas de pluie</NoRainText>
+                    <RainText>Pas de pluie</RainText>
                 </RainContainer>
             )}
         </div>
