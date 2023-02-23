@@ -1,14 +1,10 @@
 import styled from "styled-components"
-import { colors } from "../../utils/style/colors"
 
 const CardContainer = styled.section`
-    border: 3px solid ${colors.background};
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    width: fit-content;
+    align-items: center;
     padding: 10px;
-    border-radius: 15px;
 `
 const CardTitle = styled.div`
     font-size: 20px;

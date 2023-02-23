@@ -6,8 +6,16 @@ import { useSearchParams } from "react-router-dom"
 import Temperature from "../components/SingleView/Temperature"
 import CardCity from "../components/SingleView/CardCity"
 import Wind from "../components/SingleView/Wind"
+import Rain from "../components/SingleView/Rain"
+import { colors } from "../utils/style/colors"
 
 const SingleViewWrapper = styled.div``
+const DetailsWrapper = styled.section`
+    border: 3px solid ${colors.background};
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+`
 
 function SingleView({ props }) {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -36,8 +44,11 @@ function SingleView({ props }) {
         <SingleViewWrapper>
             <Header />
             <CardCity city={city} setCity={setCity} />
-            <Temperature data={data} setData={setData} />
-            <Wind data={data} setData={setData} />
+            <DetailsWrapper>
+                <Temperature data={data} setData={setData} />
+                <Rain data={data} setData={setData} />
+                <Wind data={data} setData={setData} />
+            </DetailsWrapper>
         </SingleViewWrapper>
     )
 }

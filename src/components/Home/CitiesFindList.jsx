@@ -23,7 +23,7 @@ function CitiesFindList({ searchByCity, setSearchByCity }) {
         <List searchByCity={searchByCity} setSearchByCity={setSearchByCity}>
             {searchByCity.map(({ name, insee, cp }) => (
                 <ElementList key={insee}>
-                    <ElementLink href="#">
+                    <ElementLink href={`/city?id=${insee}`}>
                         {name} ({cp})
                     </ElementLink>
                 </ElementList>

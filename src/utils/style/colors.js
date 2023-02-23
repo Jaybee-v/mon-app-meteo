@@ -6,4 +6,5 @@ export const colors = {
     hover: "#2D5282",
     hot: "#C43D0B",
     cold: "#0F83DD",
+    water: "#319CF0",
 }

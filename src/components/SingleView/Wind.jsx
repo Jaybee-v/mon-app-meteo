@@ -1,19 +1,16 @@
 import styled from "styled-components"
-import { colors } from "../../utils/style/colors"
 
 const WindWrapper = styled.section`
-    border: 3px solid ${colors.background};
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: fit-content;
     padding: 10px;
-    border-radius: 15px;
 `
 
 const Logo = styled.i`
-    font-size: 50px;
+    font-size: 40px;
     padding: 10px;
     color: red;
 `
