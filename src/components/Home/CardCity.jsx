@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { colors } from "../../utils/style/colors"
 import getImageWeather from "../../utils/functions/getImageWeather"
 import { Link } from "react-router-dom"
-import getWeather from "../../utils/functions/apiCall"
+import getLogoCardsCitiesHome from "../../utils/functions/getLogoWeatherCardsHome"
 
 const CardCitiesDiv = styled.article`
     height: 180px;
@@ -17,6 +17,7 @@ const CardCitiesDiv = styled.article`
 `
 const StyledLink = styled(Link)`
     text-decoration: none;
+    hoverflow: hidden;
 `
 const CardP = styled.p`
     z-index: 999;
@@ -27,8 +28,9 @@ const CardP = styled.p`
 
 const Text = styled.p`
     z-index: 999;
-    font-size: 25px;
-    color: #2f2f2f;
+    font-size: 30px;
+    font-weight: 600;
+    color: #0f0f0f;
     padding: 5px 0 0 20px;
 `
 
@@ -44,7 +46,11 @@ const TextContainer = styled.div`
 `
 
 const LogoContainer = styled.div`
-    color: white;
+    color: ${colors.hot};
+    background-color: #cccccca6;
+    width: fit-content;
+    padding: 15px;
+    border-radius: 50%;
     position: relative;
     top: -313px;
     left: 231px;
@@ -70,7 +76,7 @@ function CardCity({
                         <Text>
                             <i
                                 className="fa-solid fa-temperature-half"
-                                style={{ paddingRight: "17px" }}
+                                style={{ paddingRight: "22px" }}
                             ></i>
                             {parisData.forecast[0].temp2m}°C
                         </Text>
@@ -83,7 +89,7 @@ function CardCity({
                         </Text>
                     </TextContainer>
                     <LogoContainer>
-                        {getWeather(parisData.forecast[0].weather)}
+                        {getLogoCardsCitiesHome(parisData.forecast[0].weather)}
                     </LogoContainer>
                 </StyledLink>
             )
@@ -98,7 +104,7 @@ function CardCity({
                         <Text>
                             <i
                                 className="fa-solid fa-temperature-half"
-                                style={{ paddingRight: "17px" }}
+                                style={{ paddingRight: "22px" }}
                             ></i>
                             {marseilleData.forecast[0].temp2m}°C
                         </Text>
@@ -111,7 +117,9 @@ function CardCity({
                         </Text>
                     </TextContainer>
                     <LogoContainer>
-                        {getWeather(marseilleData.forecast[0].weather)}
+                        {getLogoCardsCitiesHome(
+                            marseilleData.forecast[0].weather
+                        )}
                     </LogoContainer>
                 </StyledLink>
             )
@@ -126,7 +134,7 @@ function CardCity({
                         <Text>
                             <i
                                 className="fa-solid fa-temperature-half"
-                                style={{ paddingRight: "17px" }}
+                                style={{ paddingRight: "22px" }}
                             ></i>
                             {bordeauxData.forecast[0].temp2m}°C
                         </Text>
@@ -139,7 +147,9 @@ function CardCity({
                         </Text>
                     </TextContainer>
                     <LogoContainer>
-                        {getWeather(bordeauxData.forecast[0].weather)}
+                        {getLogoCardsCitiesHome(
+                            bordeauxData.forecast[0].weather
+                        )}
                     </LogoContainer>
                 </StyledLink>
             )

@@ -19,7 +19,7 @@ const Table = styled.table`
 const THead = styled.thead``
 const TR = styled.tr`
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
 `
 const TH = styled.th`
     padding: 5px;
@@ -78,6 +78,9 @@ function TableWeatherByHour() {
                                 <THLogo className="fa-solid fa-cloud-sun-rain"></THLogo>
                             </TH>
                             <TH>
+                                <THLogo className="fa-solid fa-droplet"></THLogo>
+                            </TH>
+                            <TH>
                                 <THLogo className="fa-solid fa-temperature-three-quarters"></THLogo>
                             </TH>
                             <TH>
@@ -104,6 +107,7 @@ function TableWeatherByHour() {
                                 )}
                             </TD>
                             <TD>{getWeather(hour.weather)}</TD>
+                            <TD>{hour.rr10}mm</TD>
                             <TD>{hour.temp2m}°C</TD>
                             <TD>{hour.wind10m}km/h</TD>
                             <TD>{hour.gust10m}km/h</TD>
