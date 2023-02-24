@@ -19,7 +19,9 @@ const DetailsWrapper = styled.section`
     padding: 10px 2px;
     margin: 15px 15px;
 `
-const Title = styled.h2``
+const Title = styled.h2`
+    padding: 15px 0 15px 15px;
+`
 
 function SingleView({ props }) {
     const [searchParams, setSearchParams] = useSearchParams()
